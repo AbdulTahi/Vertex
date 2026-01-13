@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vertex Global | Investment Strategies</title>
+    <link rel="icon" type="image/png" href="./favicon.png" class="vertex-rounded">
+    <link rel="apple-touch-icon" href="./favicon.png" class="vertex-rounded">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://realearningsfund.info/temp/custom/assets/css/remixicon.css">
+    <link rel="stylesheet" href="https://realearningsfund.info/temp/custom/assets/css/aos.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --vertex-gold: #c5a059;
+            --vertex-dark: #0f141e;
+            --vertex-panel: #161c27;
+        }
+
+        /* .vertex-rounded {
+        border-radius: 50%;
+        border: 2px solid var(--vertex-gold);
+        object-fit: cover;
+        } */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--vertex-dark);
+            color: #fff;
+            padding-bottom: 100px;
+        }
+
+        .section-header {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .section-header span {
+            color: var(--vertex-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Pricing Cards */
+        .plan-card {
+            background: var(--vertex-panel);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: 0.4s all ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--vertex-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .plan-card.featured {
+            border: 1px solid var(--vertex-gold);
+            background: linear-gradient(145deg, #161c27 0%, #1c2533 100%);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--vertex-gold);
+            color: #000;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .plan-icon {
+            font-size: 40px;
+            color: var(--vertex-gold);
+            margin-bottom: 20px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-roi {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--vertex-gold);
+            margin-bottom: 25px;
+        }
+
+        .plan-roi small {
+            font-size: 14px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .plan-details {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+        }
+
+        .plan-details li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .plan-details li span {
+            color: #aaa;
+        }
+
+        .plan-details li b {
+            color: #fff;
+        }
+
+        .btn-vertex {
+            background: var(--vertex-gold);
+            color: #000;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-vertex:hover {
+            background: #d4ae6a;
+            color: #000;
+        }
+
+        .btn-outline-vertex {
+            background: transparent;
+            color: var(--vertex-gold);
+            border: 1px solid var(--vertex-gold);
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-outline-vertex:hover {
+            background: var(--vertex-gold);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="section-header">
+            <span>Capital Growth Modules</span>
+            <h1 class="display-4 font-weight-bold">Select Your Strategy</h1>
+            <p class="text-muted col-lg-6 offset-lg-3">Bespoke investment tiers designed for diversified risk-adjusted returns across global markets.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="plan-card text-center">
+                    <div class="plan-icon"><i class="ri-seedling-line"></i></div>
+                    <div class="plan-name">Basic Portfolio</div>
+                    <div class="plan-roi">12.5% <small>Net Return</small></div>
+                    
+                    <ul class="plan-details">
+                        <li><span>Min Deposit:</span> <b>$500.00</b></li>
+                        <li><span>Max Deposit:</span> <b>$4,999.00</b></li>
+                        <li><span>Duration:</span> <b>7 Trading Days</b></li>
+                        <li><span>Management:</span> <b>Automated AI</b></li>
+                        <li><span>Withdrawal:</span> <b>Instant</b></li>
+                    </ul>
+
+                    <a href="login.html" class="btn btn-outline-vertex">Select Basic</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="plan-card featured text-center">
+                    <div class="plan-badge">Popular</div>
+                    <div class="plan-icon"><i class="ri-copper-coin-line"></i></div>
+                    <div class="plan-name">Silver Executive</div>
+                    <div class="plan-roi">25.0% <small>Net Return</small></div>
+                    
+                    <ul class="plan-details">
+                        <li><span>Min Deposit:</span> <b>$5,000.00</b></li>
+                        <li><span>Max Deposit:</span> <b>$19,999.00</b></li>
+                        <li><span>Duration:</span> <b>14 Trading Days</b></li>
+                        <li><span>Management:</span> <b>Semi-Managed</b></li>
+                        <li><span>Access:</span> <b>Global Markets</b></li>
+                    </ul>
+
+                    <a href="login.html" class="btn btn-vertex">Select Silver</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="plan-card text-center">
+                    <div class="plan-icon"><i class="ri-medal-2-line"></i></div>
+                    <div class="plan-name">Gold Institutional</div>
+                    <div class="plan-roi">45.0% <small>Net Return</small></div>
+                    
+                    <ul class="plan-details">
+                        <li><span>Min Deposit:</span> <b>$20,000.00</b></li>
+                        <li><span>Max Deposit:</span> <b>Unlimited</b></li>
+                        <li><span>Duration:</span> <b>30 Trading Days</b></li>
+                        <li><span>Management:</span> <b>Dedicated Advisor</b></li>
+                        <li><span>Tier:</span> <b>Vertex Prime</b></li>
+                    </ul>
+
+                    <a href="login.html" class="btn btn-outline-vertex">Select Gold</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 text-center" data-aos="fade-in">
+            <p class="small text-muted">
+                <i class="ri-information-line"></i> Note: All returns are calculated based on market performance. Principal capital is secured by Vertex Vault Protection.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://realearningsfund.info/temp/custom/assets/js/jquery.min.js"></script>
+    <script src="https://realearningsfund.info/temp/custom/assets/js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

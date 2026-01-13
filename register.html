@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Vertex Global | Institutional Onboarding</title>
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="./favicon.png" class="vertex-rounded">
+    <link rel="apple-touch-icon" href="./favicon.png" class="vertex-rounded">    
+    <link href="https://realearningsfund.info/temp/custom/assets/css/remixicon.css" rel="stylesheet">
+    <link href="https://realearningsfund.info/temp/custom/assets/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        :root { --vertex-gold: #c5a059; --vertex-dark: #0f141e; --vertex-panel: #161c27; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--vertex-dark); color: #fff; margin: 0; }
+        /* .vertex-rounded { border-radius: 50%; border: 2px solid var(--vertex-gold); object-fit: cover;} */
+        .reg-wrapper { display: flex; min-height: 100vh; }
+        .reg-aside { flex: 1; background: linear-gradient(rgba(15,20,30,0.85), rgba(15,20,30,0.95)), url('https://realearningsfund.info/temp/custom/assets/img/about/about-img-5.jpg'); background-size: cover; padding: 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(197, 160, 89, 0.2); }
+        .reg-form-area { width: 650px; padding: 50px 80px; background: var(--vertex-dark); overflow-y: auto; }
+        
+        .form-control-vertex { background: var(--vertex-panel) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: #fff !important; padding: 12px 15px; border-radius: 8px; }
+        .form-control-vertex:focus { border-color: var(--vertex-gold) !important; box-shadow: 0 0 10px rgba(197, 160, 89, 0.1); }
+        .btn-vertex { background: var(--vertex-gold); color: #000; font-weight: 700; padding: 14px; border-radius: 8px; border: none; width: 100%; transition: 0.3s; text-transform: uppercase; }
+        .btn-vertex:hover { background: #d4ae6a; transform: translateY(-2px); }
+
+        .benefit-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
+        .benefit-icon { background: rgba(197, 160, 89, 0.1); color: var(--vertex-gold); padding: 10px; border-radius: 8px; margin-right: 15px; }
+        
+        @media (max-width: 992px) { .reg-aside { display: none; } .reg-form-area { width: 100%; padding: 40px 20px; } }
+    </style>
+</head>
+<body>
+    <div class="reg-wrapper">
+        <div class="reg-aside">
+            <img src="./Vertex.png" class="mb-5" width="180">
+            <h2 class="text-white font-weight-bold mb-4">Join the Future of <br><span style="color:var(--vertex-gold)">Capital Management</span></h2>
+            
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="ri-shield-flash-line h4 mb-0"></i></div>
+                <div><h6 class="mb-1 text-white">Tier-1 Security</h6><p class="small text-muted mb-0">Multi-sig custody and biometric verification standards.</p></div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="ri-global-line h4 mb-0"></i></div>
+                <div><h6 class="mb-1 text-white">Global Access</h6><p class="small text-muted mb-0">Deploy capital across 40+ countries and 120+ asset classes.</p></div>
+            </div>
+        </div>
+
+        <div class="reg-form-area">
+            <div class="mb-5">
+                <h3 class="font-weight-bold">Create Institutional Account</h3>
+                <p class="text-muted">Fill to initialize onboarding.</p>
+            </div>
+
+            <form action="#" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label class="small font-weight-bold text-muted text-uppercase">First Name</label>
+                        <input type="text" class="form-control form-control-vertex" placeholder="John" required>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label class="small font-weight-bold text-muted text-uppercase">Last Name</label>
+                        <input type="text" class="form-control form-control-vertex" placeholder="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="small font-weight-bold text-muted text-uppercase">Email Address</label>
+                    <input type="email" class="form-control form-control-vertex" placeholder="j.doe@corporate.com" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="small font-weight-bold text-muted text-uppercase">Password</label>
+                    <input type="password" class="form-control form-control-vertex" placeholder="Min. 8 characters" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="small font-weight-bold text-muted text-uppercase">Account Type</label>
+                    <select class="form-control form-control-vertex">
+                        <option>Private Wealth Individual</option>
+                        <option>Institutional Entity</option>
+                        <option>Family Office</option>
+                    </select>
+                </div>
+
+                <div class="mb-4 small text-muted">
+                    By clicking "Initialize", you agree to our <a href="#" class="text-gold">Terms of Service</a> and <a href="#" class="text-gold">KYC/AML Privacy Policy</a>.
+                </div>
+
+                <button type="submit" class="btn-vertex">Initialize Account <i class="ri-arrow-right-line"></i></button>
+
+                <div class="text-center mt-4">
+                    <p class="small text-muted">Already registered? <a href="login.html" class="text-gold font-weight-bold">Secure Sign In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
