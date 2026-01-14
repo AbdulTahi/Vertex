@@ -57,12 +57,6 @@
             padding: 15px;
             margin-bottom: 15px;
         }
-
-        /* .vertex-rounded {
-        border-radius: 50%;
-        border: 2px solid var(--vertex-gold);
-        object-fit: cover;
-        } */
         
         /* Modernized Buttons */
         .btn.style1 {
@@ -75,13 +69,14 @@
             transform: translateY(-2px);
             background: #d4ae6a;
         }
-                /* FIX: Header Visibility (Solid White background as per screenshot) */
+        
+        /* FIX: Header Visibility (Solid White background as per screenshot) */
         .header-wrap.style2 {
             background: #ffffff !important;
             border-bottom: 1px solid #eeeeee;
         }
 
-                /* MARKET TICKER: High visibility with Gold Text */
+        /* MARKET TICKER: High visibility with Gold Text */
         .market-ticker {
             background: #161c27;
             color: var(--vertex-gold) !important; /* Gold text color */
@@ -93,7 +88,8 @@
             position: relative;
             z-index: 1000; /* Ensures it stays on top */
         }
-                /* Partner Logo Styling */
+        
+        /* Partner Logo Styling */
         .partner-logo {
             max-height: 40px;
             filter: grayscale(1) invert(1) brightness(0.8);
@@ -118,122 +114,182 @@
             overflow: hidden;
         }
         .chat-header { background: var(--vertex-dark); color: white; padding: 15px; font-weight: bold; }
-        /* .chat-trigger {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--vertex-gold);
-            border-radius: 50%;
+        .chat-trigger { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 60px; 
+            height: 60px; 
+            background: #c5a059; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4); 
+            z-index: 9999; 
+        }
+
+        /* Language Selector Styling */
+        .language-selector {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        } */
-         .chat-trigger { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #c5a059; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4); z-index: 9999; }
+            gap: 5px;
+        }
+        .language-selector select {
+            border: 1px solid var(--vertex-gold);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 13px;
+            outline: none;
+            background: white;
+        }
 
+        /* =========================================
+           NAVBAR FIX - MOBILE ONLY
+           ========================================= */
+        @media (max-width: 991px) {
+            /* Create flexbox layout: Logo | Toggler | Language */
+            .navbar {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 10px 15px !important;
+            }
+            
+            .navbar-brand {
+                order: 1;
+                flex: 0 0 auto;
+            }
+            
+            .navbar-brand img {
+                max-width: 80px !important;
+            }
+            
+            .navbar-toggler {
+                order: 2;
+                flex: 0 0 auto;
+                margin: 0 !important;
+                padding: 5px 8px !important;
+                font-size: 1rem !important;
+            }
+            
+            .language-selector {
+                order: 3;
+                flex: 0 0 auto;
+                margin-left: auto !important;
+                padding: 3px 6px !important;
+            }
+            
+            .language-selector select {
+                padding: 2px 6px !important;
+                font-size: 12px !important;
+            }
+            
+            /* Collapsible menu appears below - full width */
+            .navbar-collapse {
+                order: 4;
+                flex-basis: 100% !important;
+                width: 100% !important;
+                background: white !important;
+                margin-top: 10px !important;
+                padding: 15px !important;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-item {
+                padding: 8px 0 !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 12px !important;
+                font-size: 14px !important;
+            }
+            
+            /* Hide desktop login button on mobile */
+            .other-options {
+                display: none !important;
+            }
+        }
 
+        /* Desktop: Keep normal layout */
+        @media (min-width: 992px) {
+            .navbar {
+                display: flex !important;
+                align-items: center !important;
+                padding: 15px 0 !important;
+            }
+            
+            .navbar-brand {
+                margin-right: 0 !important;
+            }
+            
+            .navbar-collapse {
+                flex-grow: 0 !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            .navbar-nav {
+                margin: 0 !important;
+            }
+            
+            .language-selector {
+                margin-left: 0 !important;
+            }
+            
+            .other-options {
+                margin-left: 0 !important;
+            }
+        }
 
-         /* =========================================
-   MOBILE-ONLY RESPONSIVE ADJUSTMENTS
-   ========================================= */
-@media only screen and (max-width: 767px) {
-@media (max-width: 991px) {
-    /* FIX: Prevents market ticker from blocking hero text */
-    .hero-wrap.style2 {
-        padding-top: 160px !important;
-    }
+        /* =========================================
+           MOBILE-ONLY RESPONSIVE ADJUSTMENTS
+           ========================================= */
+        @media only screen and (max-width: 767px) {
+            /* Spacing: Pushes Hero down so the Market Ticker doesn't block text */
+            .hero-wrap.style2 {
+                padding-top: 180px !important;
+            }
 
-    /* FIX: Keeps Logo, Lang, and Menu icon in one clean row */
-    .header-wrap.style2 .navbar {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
+            /* 3. Button Stacking (Fixes Overlap) */
+            .hero-btn { 
+                display: flex !important; 
+                flex-direction: column !important; 
+                gap: 12px !important; 
+            }
+            .hero-btn .btn { 
+                margin-left: 0 !important; 
+                width: 100% !important; 
+            }
 
-    /* FIX: Compact Language Selector for Mobile */
-    .language-selector {
-        border: 1px solid #c5a059 !important;
-        border-radius: 4px !important;
-        padding: 2px 5px !important;
-        margin: 0 10px !important;
-        background: #fff !important;
-        height: 32px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
+            /* 4. Portfolio Numbers (Prevents Box Overlap) */
+            .dashboard-preview .row .col-6 {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                margin-bottom: 10px !important;
+            }
+            .stat-card span.h4 { 
+                font-size: 1.2rem !important; 
+                word-break: break-all !important; 
+            }
 
-    .lang-select {
-        font-size: 11px !important;
-        border: none !important;
-        font-weight: bold !important;
-        padding: 0 !important;
-    }
-
-    /* FIX: Dropdown Menu Appearance */
-    .navbar-collapse {
-        background: #ffffff !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        width: 100% !important;
-        padding: 20px !important;
-        z-index: 999 !important;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1) !important;
-    }
-
-    .nav-item {
-        margin-bottom: 10px !important;
-        border-bottom: 1px solid #f5f5f5;
-    }
-
-    /* Makes Login button full width inside the mobile menu */
-    .w-100-mobile {
-        width: 100% !important;
-        text-align: center !important;
-        margin-top: 15px !important;
-    }
-}
-
-    /* 3. Button Stacking (Fixes Overlap) */
-    .hero-btn { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        gap: 12px !important; 
-    }
-    .hero-btn .btn { 
-        margin-left: 0 !important; 
-        width: 100% !important; 
-    }
-
-    /* 4. Portfolio Numbers (Prevents Box Overlap) */
-    .dashboard-preview .row .col-6 {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 10px !important;
-    }
-    .stat-card span.h4 { 
-        font-size: 1.2rem !important; 
-        word-break: break-all !important; 
-    }
-
-    /* 5. Liquidity Logos (Fixes Clutter/Crashing) */
-    .partner-wrap .carousel-item .d-flex {
-        flex-direction: column !important;
-        gap: 25px !important;
-    }
-    .partner-logo {
-        max-height: 30px !important;
-        width: auto !important;
-        margin: 0 auto !important;
-    }
-}
+            /* 5. Liquidity Logos (Fixes Clutter/Crashing) */
+            .partner-wrap .carousel-item .d-flex {
+                flex-direction: column !important;
+                gap: 25px !important;
+            }
+            .partner-logo {
+                max-height: 30px !important;
+                width: auto !important;
+                margin: 0 auto !important;
+            }
+        }
     </style>
 </head>
 
@@ -244,47 +300,51 @@
             <div class="header-bottom">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
-                       <a class="navbar-brand" href="index.html">
-                        <img src="./Vertex.png" alt="Vertex Global Logo" style="max-width: 100px;">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="./Vertex.png" alt="Vertex" style="max-width: 100px;">
                         </a>
 
-                        <div class="collapse navbar-collapse main-menu-wrap" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="language-selector">
+                            <i class="ri-global-line text-gold"></i>
+                            <select onchange="console.log('Lang changed to: ' + this.value)">
+                                <option value="en">EN</option>
+                                <option value="zh">ZH</option>
+                                <option value="de">DE</option>
+                            </select>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="mainNav">
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"><a href="https://abdultahi.github.io/Vertex/index.html" class="nav-link active">Intelligence</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                                <li class="nav-item"><a href="https://abdultahi.github.io/Vertex/investment-plan.html" class="nav-link">investment Plans</a></li>
+                                <li class="nav-item"><a href="https://abdultahi.github.io/Vertex/investment-plans.html" class="nav-link">Investment Plans</a></li>
                                 <li class="nav-item"><a href="https://abdultahi.github.io/Vertex/about.html" class="nav-link">About</a></li>
                             </ul>
-                            <div class="other-options">
-                                <a href="https://abdultahi.github.io/Vertex/login.html" class="btn style1">LOGIN <i class="ri-shield-user-line"></i></a>
+                            <div class="d-md-none mt-3">
+                                <a href="#" class="btn style1 w-100">LOGIN</a>
                             </div>
                         </div>
 
-            <div id="google_translate_element" style="display: none;"></div>
-            <div class="language-selector">
-                <i class="ri-global-line text-gold mr-2"></i>
-                <select class="lang-select" onchange="changeLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="zh-CN">Chinese</option>
-                    <option value="de">Deutsch</option>
-                    <option value="fr">Français</option>
-                    <option value="es">Español</option>
-                    <option value="ar">العربية</option>
-                </select>
-            </div>                        
+                        <div class="other-options d-none d-md-block ml-3">
+                            <a href="https://abdultahi.github.io/Vertex/login.html" class="btn style1">LOGIN</a>
+                        </div>
                     </nav>
                 </div>
-                    <div class="market-ticker">
-        <div class="container-fluid">
-            <marquee behavior="scroll" direction="left">
-                <span class="ticker-item">BTC/USD: <span class="ticker-up">$96,432.10 (+2.4%)</span></span>
-                <span class="ticker-item">XAU/USD (GOLD): <span class="ticker-up">$2,041.50 (+0.8%)</span></span>
-                <span class="ticker-item">EUR/USD: <span class="ticker-down">1.0842 (-0.12%)</span></span>
-                <span class="ticker-item">S&P 500: <span class="ticker-up">5,134.20 (+1.1%)</span></span>
-                <span class="ticker-item">ETH/USD: <span class="ticker-up">$3,241.05 (+4.2%)</span></span>
-            </marquee>
-        </div>
-    </div>
+                <div class="market-ticker">
+                    <div class="container-fluid">
+                        <marquee behavior="scroll" direction="left">
+                            <span class="ticker-item">BTC/USD: <span class="ticker-up">$96,432.10 (+2.4%)</span></span>
+                            <span class="ticker-item">XAU/USD (GOLD): <span class="ticker-up">$2,041.50 (+0.8%)</span></span>
+                            <span class="ticker-item">EUR/USD: <span class="ticker-down">1.0842 (-0.12%)</span></span>
+                            <span class="ticker-item">S&P 500: <span class="ticker-up">5,134.20 (+1.1%)</span></span>
+                            <span class="ticker-item">ETH/USD: <span class="ticker-up">$3,241.05 (+4.2%)</span></span>
+                        </marquee>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -340,7 +400,7 @@
             </div>
         </section>
 
- <div class="partner-wrap ptb-50">
+        <div class="partner-wrap ptb-50">
             <div class="container text-center">
                 <p class="small font-weight-bold text-muted mb-4 uppercase">INTEGRATED WITH GLOBAL LIQUIDITY PROVIDERS</p>
                 <div id="logoCarousel" class="carousel slide" data-ride="carousel" data-interval="2500">
@@ -370,7 +430,7 @@
                     <div class="col-lg-6">
                         <div class="content-title style1">
                             <span>BEYOND BANKING</span>
-                            ## Why High-Net-Worth Individuals Choose Vertex
+                            <h2>Why High-Net-Worth Individuals Choose Vertex</h2>
                         </div>
                         <div class="feature-item-wrap">
                             <div class="feature-item">
@@ -407,21 +467,18 @@
                         <div class="testimonial-card style3" style="background: rgba(255,255,255,0.05); border: none;">
                             <p class="text-light">"The ability to move between stablecoins and traditional EUR/GBP liquidity in seconds is exactly what my family office needed."</p>
                             <h5 class="text-gold mb-0">- Henrik Van Der Berg</h5>
-                            <!-- <small class="text-muted">Private Equity Partner</small> -->
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="testimonial-card style3" style="background: rgba(255,255,255,0.05); border: none;">
                             <p class="text-light">"Vertex provides a level of reporting and transparency that I haven't seen in the digital asset space before. Truly professional."</p>
                             <h5 class="text-gold mb-0">- Sarah Jenkins</h5>
-                            <!-- <small class="text-muted">Institutional Advisor</small> -->
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="testimonial-card style3" style="background: rgba(255,255,255,0.05); border: none;">
                             <p class="text-light">"The 'Vertex Prime' concierge service is a game changer for my international travel requirements. Excellent support."</p>
                             <h5 class="text-gold mb-0">- David Thorne</h5>
-                            <!-- <small class="text-muted">CEO, Thorne Tech</small> -->
                         </div>
                     </div>
                 </div>
@@ -432,7 +489,7 @@
             <div class="container">
                 <div class="row pb-50">
                     <div class="col-lg-4">
-                        <img src="https://via.placeholder.com/220x60/0f141e/c5a059?text=VERTEX+WHITE" alt="Vertex" class="mb-4">
+                        <img src="./Vertex.png" alt="Vertex" class="mb-4">
                         <p class="text-muted small">Leading the global transition to intelligent, digital-first financial management and high-tier wealth protection.</p>
                         <div class="social-links mt-4">
                             <a href="#" class="text-gold mr-3"><i class="ri-linkedin-box-fill h4"></i></a>
@@ -477,8 +534,9 @@
         </div>
     </div>
 
-    <script src="https://realearningsfund.info/temp/custom/assets/js/jquery.min.js"></script>
-    <script src="https://realearningsfund.info/temp/custom/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <script src="https://realearningsfund.info/temp/custom/assets/js/aos.js"></script>
     <script src="https://realearningsfund.info/temp/custom/assets/js/main.js"></script>
     <script>
@@ -488,12 +546,11 @@
             chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
         }
         $(document).ready(function() {
-        // This line manually starts the movement
-        $('.carousel').carousel({
-            interval: 2500,
-            ride: 'carousel'
+            $('.carousel').carousel({
+                interval: 2500,
+                ride: 'carousel'
+            });
         });
-    });
     </script>
 </body>
 </html>
