@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Vertex Global - Institutional Wealth Management Heritage.">
     
-    <link rel="icon" type="image/png" href="./favicon.png" class="vertex-rounded">
-    <link rel="apple-touch-icon" href="./favicon.png" class="vertex-rounded">    
-    
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" href="./favicon.png">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://realearningsfund.info/temp/custom/assets/css/remixicon.css">
-    <link rel="stylesheet" href="https://realearningsfund.info/temp/custom/assets/css/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
     <title>About Us | Vertex Global Finance</title>
     
@@ -32,7 +32,11 @@
         }
 
         /* Language Utility Bar */
-        .header-top { background: #0a0e14; border-bottom: 1px solid rgba(197, 160, 89, 0.1); padding: 8px 0; }
+        .header-top { 
+            background: #0a0e14; 
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1); 
+            padding: 8px 0; 
+        }
         .lang-select {
             background: transparent;
             color: #fff;
@@ -119,17 +123,84 @@
         .btn-gold:hover {
             background: #d4ae6a;
             transform: translateY(-2px);
+            color: #000;
         }
 
         /* Navigation Styling */
         .navbar-brand img { max-width: 180px; }
-        .nav-link { font-weight: 600; color: #333 !important; margin: 0 15px; }
+        .nav-link { 
+            font-weight: 600; 
+            color: #333 !important; 
+            margin: 0 15px; 
+            transition: 0.3s;
+        }
         .nav-link:hover { color: var(--vertex-gold) !important; }
+
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            background: white;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            margin-top: 10px;
+            z-index: 1100 !important;
+        }
+        
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+            transition: 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--vertex-gold);
+        }
+        
+        .dropdown-toggle::after {
+            margin-left: 5px;
+        }
+
+        /* Utilities */
+        .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+        .my-5 { margin-top: 3rem !important; margin-bottom: 3rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mt-2 { margin-top: 0.5rem !important; }
+        .mt-3 { margin-top: 1rem !important; }
+        .mb-0 { margin-bottom: 0 !important; }
+        .bg-light { background-color: #f8f9fa !important; }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                margin-top: 10px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-link {
+                margin: 10px 0;
+            }
+            
+            .stat-item h2 {
+                font-size: 36px;
+            }
+            
+            .about-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .story-wrap {
+                padding: 60px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
-<script src="discord-notify.js"></script>
 
     <div class="header-top">
         <div class="container d-flex justify-content-end align-items-center">
@@ -151,18 +222,30 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="./Vertex.png" alt="Vertex Global Logo" style="max-width: 100px;">
+                <img src="./Vertex.png" alt="Vertex Logo" style="max-width: 120px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="https://abdultahi.github.io/Vertex/index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-gold" href="https://abdultahi.github.io/Vertex/about.html">About Heritage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://abdultahi.github.io/Vertex/investment-plan.html">Strategies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Intelligence</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <a class="dropdown-item" href="investment-plan.html">Gold Trading</a>
+                            <a class="dropdown-item" href="investment-plan.html">Silver Trading</a>
+                            <a class="dropdown-item" href="investment-plan.html">Bonds</a>
+                            <a class="dropdown-item" href="investment-plan.html">Cryptocurrency</a>
+                            <a class="dropdown-item" href="investment-plan.html">Forex</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="investment-plan.html">Investment Plans</a></li>
+                    <li class="nav-item"><a class="nav-link text-gold" href="about.html">About</a></li>
                     <li class="nav-item ml-lg-3">
-                        <a href="login.html" class="btn-gold py-2 px-4" style="font-size: 12px;">Client Portal</a>
+                        <a href="#" class="btn-gold py-2 px-4" style="font-size: 12px;">LOGIN</a>
                     </li>
                 </ul>
             </div>
@@ -183,13 +266,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="https://realearningsfund.info/temp/custom/assets/img/about/about-img-1.jpg" alt="Vertex HQ" class="about-img">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop" alt="Vertex HQ" class="about-img">
                 </div>
                 <div class="col-lg-6 pl-lg-5" data-aos="fade-left">
                     <h2 class="font-weight-bold mb-4">Institutional Pedigree</h2>
                     <p>Founded on the principles of transparency and technical agility, Vertex Global bridges the gap between traditional asset preservation and the burgeoning digital economy.</p>
                     <p>What started as a boutique private equity desk in London has evolved into a global ecosystem, managing diversified portfolios across five continents. Our approach is purely data-driven, utilizing proprietary AI algorithms to capture alpha in volatile markets.</p>
-                    <a href="https://abdultahi.github.io/Vertex/investment-plan.html" class="btn-gold mt-3">Explore Our Strategies</a>
+                    <a href="investment-plan.html" class="btn-gold mt-3">Explore Our Strategies</a>
                 </div>
             </div>
         </div>
@@ -264,13 +347,16 @@
         </div>
     </footer>
 
-    <script src="https://realearningsfund.info/temp/custom/assets/js/jquery.min.js"></script>
-    <script src="https://realearningsfund.info/temp/custom/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://realearningsfund.info/temp/custom/assets/js/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
+        // Initialize AOS
         AOS.init({ duration: 1000, once: true });
 
+        // Counter Animation
         document.addEventListener("DOMContentLoaded", () => {
             const counters = document.querySelectorAll('.stat-number');
             const speed = 150; 
@@ -306,7 +392,15 @@
             counters.forEach(counter => observer.observe(counter));
         });
 
-        // LANGUAGE LOGIC
+        // Google Translate Integration
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,zh-CN,de,fr,es,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+
         function changeLanguage(langCode) {
             var select = document.querySelector('.goog-te-combo');
             if (select) {
