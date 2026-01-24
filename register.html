@@ -3,46 +3,207 @@
 <head>
     <title>Vertex Global | Institutional Onboarding</title>
     <meta charset="utf-8" />
-    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="./favicon.png" class="vertex-rounded">
-    <link rel="apple-touch-icon" href="./favicon.png" class="vertex-rounded">    
-    <link href="https://realearningsfund.info/temp/custom/assets/css/remixicon.css" rel="stylesheet">
-    <link href="https://realearningsfund.info/temp/custom/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" href="./favicon.png">    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        :root { --vertex-gold: #c5a059; --vertex-dark: #0f141e; --vertex-panel: #161c27; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--vertex-dark); color: #fff; margin: 0; }
-        /* .vertex-rounded { border-radius: 50%; border: 2px solid var(--vertex-gold); object-fit: cover;} */
-        .reg-wrapper { display: flex; min-height: 100vh; }
-        .reg-aside { flex: 1; background: linear-gradient(rgba(15,20,30,0.85), rgba(15,20,30,0.95)), url('https://realearningsfund.info/temp/custom/assets/img/about/about-img-5.jpg'); background-size: cover; padding: 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(197, 160, 89, 0.2); }
-        .reg-form-area { width: 650px; padding: 50px 80px; background: var(--vertex-dark); overflow-y: auto; }
         
-        .form-control-vertex { background: var(--vertex-panel) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: #fff !important; padding: 12px 15px; border-radius: 8px; }
-        .form-control-vertex:focus { border-color: var(--vertex-gold) !important; box-shadow: 0 0 10px rgba(197, 160, 89, 0.1); }
-        .btn-vertex { background: var(--vertex-gold); color: #000; font-weight: 700; padding: 14px; border-radius: 8px; border: none; width: 100%; transition: 0.3s; text-transform: uppercase; }
-        .btn-vertex:hover { background: #d4ae6a; transform: translateY(-2px); }
+        :root { 
+            --vertex-gold: #c5a059; 
+            --vertex-dark: #0f141e; 
+            --vertex-panel: #161c27; 
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--vertex-dark); 
+            color: #fff; 
+            margin: 0; 
+        }
+        
+        .reg-wrapper { 
+            display: flex; 
+            min-height: 100vh; 
+        }
+        
+        .reg-aside { 
+            flex: 1; 
+            background: linear-gradient(rgba(15,20,30,0.85), rgba(15,20,30,0.95)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop'); 
+            background-size: cover; 
+            background-position: center;
+            padding: 60px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            border-right: 1px solid rgba(197, 160, 89, 0.2); 
+        }
+        
+        .reg-form-area { 
+            width: 650px; 
+            padding: 50px 80px; 
+            background: var(--vertex-dark); 
+            overflow-y: auto; 
+        }
+        
+        .form-control-vertex { 
+            background: var(--vertex-panel) !important; 
+            border: 1px solid rgba(255,255,255,0.1) !important; 
+            color: #fff !important; 
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            transition: 0.3s;
+        }
+        
+        .form-control-vertex:focus { 
+            border-color: var(--vertex-gold) !important; 
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.1); 
+            background: var(--vertex-panel) !important;
+            color: #fff !important;
+        }
 
-        .benefit-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
-        .benefit-icon { background: rgba(197, 160, 89, 0.1); color: var(--vertex-gold); padding: 10px; border-radius: 8px; margin-right: 15px; }
+        .form-control-vertex::placeholder {
+            color: #666 !important;
+        }
         
-        @media (max-width: 992px) { .reg-aside { display: none; } .reg-form-area { width: 100%; padding: 40px 20px; } }
+        .btn-vertex { 
+            background: var(--vertex-gold); 
+            color: #000; 
+            font-weight: 700; 
+            padding: 14px; 
+            border-radius: 8px; 
+            border: none; 
+            width: 100%; 
+            transition: 0.3s; 
+            text-transform: uppercase; 
+            cursor: pointer;
+        }
+        
+        .btn-vertex:hover { 
+            background: #d4ae6a; 
+            transform: translateY(-2px); 
+            color: #000;
+        }
+
+        .benefit-item { 
+            display: flex; 
+            align-items: flex-start; 
+            margin-bottom: 25px; 
+        }
+        
+        .benefit-icon { 
+            background: rgba(197, 160, 89, 0.1); 
+            color: var(--vertex-gold); 
+            padding: 10px; 
+            border-radius: 8px; 
+            margin-right: 15px; 
+        }
+
+        .text-gold {
+            color: var(--vertex-gold) !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        .text-muted {
+            color: #6c757d !important;
+        }
+
+        .font-weight-bold {
+            font-weight: 700 !important;
+        }
+
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+
+        .small {
+            font-size: 0.875rem;
+        }
+
+        .mb-0 { margin-bottom: 0 !important; }
+        .mb-1 { margin-bottom: 0.25rem !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        .mt-4 { margin-top: 1.5rem !important; }
+        .h4 { font-size: 1.5rem; }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a.text-gold:hover {
+            color: #d4ae6a !important;
+        }
+
+        /* Back to Home Link */
+        .back-home {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--vertex-gold);
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .back-home:hover {
+            color: #d4ae6a;
+        }
+        
+        @media (max-width: 992px) { 
+            .reg-aside { 
+                display: none; 
+            } 
+            .reg-form-area { 
+                width: 100%; 
+                padding: 40px 20px; 
+            }
+            .back-home {
+                top: 20px;
+                right: 20px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
 <script src="discord-notify.js"></script>
+    <a href="index.html" class="back-home">
+        <i class="ri-arrow-left-line"></i> Back to Home
+    </a>
+
     <div class="reg-wrapper">
         <div class="reg-aside">
-            <img src="./Vertex.png" class="mb-5" width="180">
+            <img src="./Vertex.png" class="mb-5" width="180" alt="Vertex Global">
             <h2 class="text-white font-weight-bold mb-4">Join the Future of <br><span style="color:var(--vertex-gold)">Capital Management</span></h2>
             
             <div class="benefit-item">
                 <div class="benefit-icon"><i class="ri-shield-flash-line h4 mb-0"></i></div>
-                <div><h6 class="mb-1 text-white">Tier-1 Security</h6><p class="small text-muted mb-0">Multi-sig custody and biometric verification standards.</p></div>
+                <div>
+                    <h6 class="mb-1 text-white">Tier-1 Security</h6>
+                    <p class="small text-muted mb-0">Multi-sig custody and biometric verification standards.</p>
+                </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon"><i class="ri-global-line h4 mb-0"></i></div>
-                <div><h6 class="mb-1 text-white">Global Access</h6><p class="small text-muted mb-0">Deploy capital across 40+ countries and 120+ asset classes.</p></div>
+                <div>
+                    <h6 class="mb-1 text-white">Global Access</h6>
+                    <p class="small text-muted mb-0">Deploy capital across 40+ countries and 120+ asset classes.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="ri-line-chart-line h4 mb-0"></i></div>
+                <div>
+                    <h6 class="mb-1 text-white">AI-Powered Returns</h6>
+                    <p class="small text-muted mb-0">Algorithmic trading strategies optimized for alpha generation.</p>
+                </div>
             </div>
         </div>
 
@@ -70,6 +231,11 @@
                 </div>
 
                 <div class="form-group mb-4">
+                    <label class="small font-weight-bold text-muted text-uppercase">Phone Number</label>
+                    <input type="tel" class="form-control form-control-vertex" placeholder="+1 (555) 000-0000" required>
+                </div>
+
+                <div class="form-group mb-4">
                     <label class="small font-weight-bold text-muted text-uppercase">Password</label>
                     <input type="password" class="form-control form-control-vertex" placeholder="Min. 8 characters" required>
                 </div>
@@ -80,6 +246,7 @@
                         <option>Private Wealth Individual</option>
                         <option>Institutional Entity</option>
                         <option>Family Office</option>
+                        <option>Corporate Treasury</option>
                     </select>
                 </div>
 
@@ -95,5 +262,13 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Prevent actual form submission (demo purposes)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Demo: Registration functionality would be connected to your backend system with KYC verification.');
+        });
+    </script>
 </body>
 </html>

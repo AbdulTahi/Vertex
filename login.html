@@ -6,10 +6,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="./favicon.png" class="vertex-rounded">
-    <link rel="apple-touch-icon" href="./favicon.png" class="vertex-rounded">    
-    <link href="https://realearningsfund.info/temp/custom/assets/css/remixicon.css" rel="stylesheet">
-    <link href="https://realearningsfund.info/temp/custom/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" href="./favicon.png">    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -19,12 +19,6 @@
             --vertex-dark: #0f141e;
             --vertex-panel: #161c27;
         }
-
-        .vertex-rounded {
-        border-radius: 50%;
-        border: 2px solid var(--vertex-gold);
-        object-fit: cover;
-        }        
 
         body {
             font-family: 'Inter', sans-serif;
@@ -43,8 +37,8 @@
         /* Left Side: Branding & Context */
         .login-aside {
             flex: 1;
-            background: linear-gradient(rgba(15, 20, 30, 0.8), rgba(15, 20, 30, 0.9)), 
-                        url('https://realearningsfund.info/temp/custom/assets/img/why-choose-us/wh-img-6.jpg');
+            background: linear-gradient(rgba(15, 20, 30, 0.85), rgba(15, 20, 30, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -66,11 +60,13 @@
 
         @media (max-width: 992px) {
             .login-aside { display: none; }
-            .login-form-area { width: 100%; }
+            .login-form-area { width: 100%; padding: 40px 20px; }
         }
 
         /* UI Elements */
         .text-gold { color: var(--vertex-gold) !important; }
+        .text-light { color: #f8f9fa !important; }
+        .text-muted { color: #6c757d !important; }
         
         .form-control-vertex {
             background: var(--vertex-panel) !important;
@@ -84,6 +80,12 @@
         .form-control-vertex:focus {
             border-color: var(--vertex-gold) !important;
             box-shadow: 0 0 0 0.2rem rgba(197, 160, 89, 0.1);
+            background: var(--vertex-panel) !important;
+            color: #fff !important;
+        }
+
+        .form-control-vertex::placeholder {
+            color: #666 !important;
         }
 
         .btn-vertex {
@@ -97,11 +99,13 @@
             border: none;
             width: 100%;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .btn-vertex:hover {
             background: #d4ae6a;
             transform: translateY(-2px);
+            color: #000;
         }
 
         .trust-badge {
@@ -114,10 +118,31 @@
             border-left: 3px solid var(--vertex-gold);
         }
 
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--vertex-gold);
+            border-color: var(--vertex-gold);
+        }
+
+        .custom-control-label {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a.text-gold:hover {
+            color: #d4ae6a !important;
+        }
+
         /* Page Loader */
         .page-loading {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
             background: var(--vertex-dark);
             z-index: 9999;
             display: flex;
@@ -125,14 +150,61 @@
             justify-content: center;
             transition: 0.5s;
         }
+        
         .loader-spinner {
-            width: 50px; height: 50px;
+            width: 50px; 
+            height: 50px;
             border: 3px solid rgba(197, 160, 89, 0.3);
             border-top-color: var(--vertex-gold);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        @keyframes spin { 
+            to { transform: rotate(360deg); } 
+        }
+
+        /* Utilities */
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        .mt-4 { margin-top: 1.5rem !important; }
+        .mt-auto { margin-top: auto !important; }
+        .pt-5 { padding-top: 3rem !important; }
+        .h2 { font-size: 2rem; }
+        .mr-3 { margin-right: 1rem !important; }
+        .mx-2 { margin-left: 0.5rem !important; margin-right: 0.5rem !important; }
+        .d-flex { display: flex !important; }
+        .justify-content-between { justify-content: space-between !important; }
+        .justify-content-center { justify-content: center !important; }
+        .align-items-center { align-items: center !important; }
+        .text-center { text-align: center !important; }
+        .font-weight-bold { font-weight: 700 !important; }
+        .small { font-size: 0.875rem; }
+        .lead { font-size: 1.25rem; font-weight: 300; }
+        .w-50 { width: 50% !important; }
+        .text-uppercase { text-transform: uppercase !important; }
+
+        /* Back to Home Link */
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--vertex-gold);
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .back-home:hover {
+            color: #d4ae6a;
+        }
+
+        @media (max-width: 992px) {
+            .back-home {
+                top: 20px;
+                left: 20px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
@@ -143,10 +215,14 @@
         <div class="loader-spinner"></div>
     </div>
 
+    <a href="index.html" class="back-home">
+        <i class="ri-arrow-left-line"></i> Back to Home
+    </a>
+
     <div class="login-wrapper">
         <div class="login-aside">
             <div class="mb-5">
-                        <img src="./Vertex.png" alt="Vertex Global Logo" style="max-width: 200px;">
+                <img src="./Vertex.png" alt="Vertex Global Logo" style="max-width: 200px;">
             </div>
             <h1 class="display-4 font-weight-bold mb-4">Secure Capital <br><span class="text-gold">Intelligence</span></h1>
             <p class="lead text-light mb-5">Access your institutional-grade portfolio, manage liquidity, and execute global transactions within our encrypted ecosystem.</p>
@@ -162,7 +238,7 @@
 
         <div class="login-form-area">
             <div class="mb-4 d-lg-none text-center">
-                <img src="Vertex.png" alt="Logo" class="w-50">
+                <img src="./Vertex.png" alt="Logo" class="w-50">
             </div>
 
             <div class="form-header mb-5">
@@ -192,7 +268,7 @@
                 <button type="submit" class="btn-vertex mb-4">Initialize Session <i class="ri-arrow-right-line"></i></button>
 
                 <div class="text-center mt-4">
-                    <p class="small text-muted">Not an institutional client? <a href="#" class="text-gold font-weight-bold">Request Access</a></p>
+                    <p class="small text-muted">Not an institutional client? <a href="index.html" class="text-gold font-weight-bold">Request Access</a></p>
                 </div>
             </form>
 
@@ -210,7 +286,13 @@
             document.getElementById('loader').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
-            }, 200);
+            }, 500);
+        });
+
+        // Prevent actual form submission (demo purposes)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Demo: Login functionality would be connected to your backend authentication system.');
         });
     </script>
 </body>
