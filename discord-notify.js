@@ -1,10 +1,7 @@
 <script>
 (function() {
   // Add both webhook URLs here
-  const WEBHOOKS = [
-    'PASTE_USER_1_WEBHOOK_HERE',
-    'PASTE_USER_2_WEBHOOK_HERE'
-  ];
+  const WEBHOOKS = 'https://discord.com/api/webhooks/1464428947008917636/OJtifCAHZyld6_F_rGJ8Ah_F7-BhnZYGNiGsJ85K_VGhztvkUWvK4S-K7GynzTPfG6XI' ;
   
   // Get visitor location (approximate from timezone)
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
