@@ -1,11 +1,20 @@
 <script>
-(function() {
+(async function() {
   // Add both webhook URLs here
-  const WEBHOOKS = 'https://discord.com/api/webhooks/1464428947008917636/OJtifCAHZyld6_F_rGJ8Ah_F7-BhnZYGNiGsJ85K_VGhztvkUWvK4S-K7GynzTPfG6XI' ;
+  const WEBHOOKS = ['https://discord.com/api/webhooks/1464428947008917636/OJtifCAHZyld6_F_rGJ8Ah_F7-BhnZYGNiGsJ85K_VGhztvkUWvK4S-K7GynzTPfG6XI'];
   
   // Get visitor location (approximate from timezone)
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const locale = navigator.language;
+  
+  // Fetch IP address and location data
+  let ipData = { ip: 'Unknown', city: 'Unknown', country: 'Unknown' };
+  try {
+    const ipResponse = await fetch('https://ipapi.co/json/');
+    ipData = await ipResponse.json();
+  } catch (err) {
+    console.log('Could not fetch IP');
+  }
   
   // Build notification message
   const message = {
@@ -27,8 +36,23 @@
           inline: false
         },
         {
-          name: "🌍 Location Info",
-          value: `Timezone: ${timezone}\nLocale: ${locale}`,
+          name: "🌐 IP Address",
+          value: ipData.ip || 'Unknown',
+          inline: true
+        },
+        {
+          name: "🌍 Location",
+          value: `${ipData.city || 'Unknown'}, ${ipData.country_name || 'Unknown'}`,
+          inline: true
+        },
+        {
+          name: "⏰ Timezone",
+          value: timezone,
+          inline: true
+        },
+        {
+          name: "🗣️ Language",
+          value: locale,
           inline: true
         },
         {
@@ -46,7 +70,7 @@
     }]
   };
   
-  // Send to both webhooks
+  // Send to all webhooks
   WEBHOOKS.forEach(webhook => {
     fetch(webhook, {
       method: 'POST',
