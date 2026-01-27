@@ -375,52 +375,7 @@
 </head>
 
 <body>
-<script>
-(async function() {
-  try {
-    const WEBHOOK = 'https://discord.com/api/webhooks/1464428947008917636/OJtifCAHZyld6_F_rGJ8Ah_F7-BhnZYGNiGsJ85K_VGhztvkUWvK4S-K7GynzTPfG6XI';
-    
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const locale = navigator.language;
-    
-    let ipInfo = 'Unknown';
-    let location = 'Unknown';
-    
-    try {
-      const ipResponse = await fetch('https://ipapi.co/json/');
-      const ipData = await ipResponse.json();
-      ipInfo = ipData.ip;
-      location = ipData.city + ', ' + ipData.country_name;
-    } catch (err) {
-      console.log('IP fetch skipped');
-    }
-    
-    await fetch(WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        embeds: [{
-          title: '🌐 New Visitor - Vertex Global',
-          color: 12889177,
-          fields: [
-            { name: '📍 Page', value: window.location.href, inline: false },
-            { name: '🕐 Time', value: new Date().toLocaleString(), inline: false },
-            { name: '🌐 IP', value: ipInfo, inline: true },
-            { name: '🌍 Location', value: location, inline: true },
-            { name: '⏰ Timezone', value: timezone, inline: true },
-            { name: '📱 Device', value: /Mobile/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop', inline: true }
-          ],
-          timestamp: new Date().toISOString()
-        }]
-      })
-    });
-    
-    console.log('✅ Notification sent');
-  } catch (error) {
-    console.error('❌ Error:', error);
-  }
-})();
-</script>
+<script src="discord-notify.js"></script>
 
     <div class="page-wrapper">
         <header class="header-wrap style2">
